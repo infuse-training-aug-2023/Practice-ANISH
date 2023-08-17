@@ -11,6 +11,8 @@ class Calc:
         
         if operation == "+":
             self.sum()
+        elif operation == "-":
+            self.sub()
         
         else :
             print("Wrong Operation!!!!")
@@ -21,6 +23,9 @@ class Calc:
     def sum():
         sum = self.a +self.b
         self.print(operation,sum)
+    def sub():
+        sum = self.a -self.b
+        self.print(operation,sum)
     
 
 
@@ -29,15 +34,11 @@ c = Calc()
 
 c.get_input()
 
-# elif operation == "-":
-#             self.sum()
-#         elif operation == "/":
-#             self.sub()
+
+
 #         elif operation == "*":
 #             self.mul()
-# def sub():
-    #     sum = self.a -self.b
-    #     self.print(operation,sum)
+
     # def mul():
     #     sum = self.a *self.b
     #     self.print(operation,sum)
