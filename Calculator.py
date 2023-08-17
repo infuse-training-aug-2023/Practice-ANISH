@@ -13,6 +13,8 @@ class Calc:
             self.sum()
         elif operation == "-":
             self.sub()
+        elif operation == "*":
+            self.mul()
         
         else :
             print("Wrong Operation!!!!")
@@ -26,6 +28,9 @@ class Calc:
     def sub():
         sum = self.a -self.b
         self.print(operation,sum)
+    def mul():
+        sum = self.a *self.b
+        self.print(operation,sum)
     
 
 
@@ -36,12 +41,9 @@ c.get_input()
 
 
 
-#         elif operation == "*":
-#             self.mul()
 
-    # def mul():
-    #     sum = self.a *self.b
-    #     self.print(operation,sum)
+
+    
     # def div():
     #     sum = self.a /self.b
     #     self.print(operation,sum)
