@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <div class="header">
-        <h1>Enter Movie name</h1>
-        <div class="searchitems">
-
-            <input id="input"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="maincont">
+        <div class="header">
+          <h1>Enter Movie name</h1>
+          <div class="searchitems">
+            <input id="input" />
             <button id="Search">Search Catalog</button>
+          </div>
         </div>
-    </div>
-    <div id="controller">
-        <div id="paginationDiv">
+        <div id="controller">
+          <div id="paginationDiv">
             <button id="prevBtn">Previous</button>
             <p id="paginationP">1/n</p>
             <button id="nextBtn">Next</button>
+          </div>
         </div>
-    </div>
-    <div class="sortingDivCont">
-        <h3>Sort by:</h3>
-        <select id="sortbyId">
-            <option>Name</option>
+        <div class="sortingDivCont">
+          <h3>Sort by:</h3>
+          <select id="sortbyId">
+            <option selected>Name</option>
             <option>Year</option>
-        </select>
+          </select>
 
-        <h3>
-            Order :
-        </h3>
-        <select id="sortOrderId">
-            <option>Ascending</option>
+          <h3>Order :</h3>
+          <select id="sortOrderId">
+            <option selected>Ascending</option>
             <option>Descending</option>
-        </select>
-    </div>
-    <div class="cardCont">
-        <!-- <div class="card">
+          </select>
+        </div>
+        <div class="cardCont">
+          <!-- <div class="card">
             <div class="imgCont">
                 <img  src="https://m.media-amazon.com/images/M/MV5BYTU1MDcwNWQtOGE0ZS00NTQzLWE2MTYtMDU1ZDNiMDA2ZmMyXkEyXkFqcGdeQXVyNzE2MTQyMzM@._V1_SX300.jpg"/>
             </div>
@@ -59,7 +60,14 @@
                 </p>
             </div>
         </div> -->
+        </div>
+      </div>
+      <div class="panelCont">
+        <iframe src="./ifram.html" id="iframe">
+
+        </iframe>
+      </div>
     </div>
     <script src="./script.js" defer></script>
-</body>
+  </body>
 </html>

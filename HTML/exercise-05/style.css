@@ -13,6 +13,18 @@ body {
   margin-bottom: 5rem;
 }
 
+.main{
+  display: flex;
+  justify-content: space-between;
+  /* grid-template-columns: 2fr 1fr; */
+}
+.maincont{
+  width: 75%;
+}
+.panelCont{
+  width: 20%;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -47,7 +59,7 @@ font-weight: 700;
 
 .card {
   background-color: whitesmoke;
-  width: 250px;
+  width: 200px;
   height: 360px;
   border-radius: 15px;
   border: 1px solid white;
