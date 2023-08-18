@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <input id="input"/>
-    <button id="Search">Search Catalog</button>
+    <div class="header">
+        <h1>Enter Movie name</h1>
+        <div class="searchitems">
+
+            <input id="input"/>
+            <button id="Search">Search Catalog</button>
+        </div>
+    </div>
+    <div id="controller">
+        <div id="paginationDiv">
+            <button>Previous</button>
+            <p>1/n</p>
+            <button>Next</button>
+        </div>
+    </div>
     <div class="cardCont">
-        <div class="card">
+        <!-- <div class="card">
             <div class="imgCont">
                 <img  src="https://m.media-amazon.com/images/M/MV5BYTU1MDcwNWQtOGE0ZS00NTQzLWE2MTYtMDU1ZDNiMDA2ZmMyXkEyXkFqcGdeQXVyNzE2MTQyMzM@._V1_SX300.jpg"/>
             </div>
@@ -27,7 +43,7 @@
                     Name Of the Movie
                 </p>
             </div>
-        </div>
+        </div> -->
     </div>
     <script src="./script.js" defer></script>
 </body>

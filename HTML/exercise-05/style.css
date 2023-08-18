@@ -1,40 +1,89 @@
-body{
-    background-color: white;
+body {
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
 }
-.cardCont{
-    margin-left: 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-row-gap: 4rem;
-margin-top: 3rem;
+.cardCont {
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 4rem;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+.header > h1{
+font-weight: 700;
+}
+
+.noneclass{
+    display: none;
+}
+#controller{
+  display: flex;
+  justify-content: center;
+}
+
+#paginationDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
 }
 
 .card {
-        background-color: whitesmoke;
-    width: 250px;
-    height: 300px;
-    border-radius: 15px;
-    border :1px solid white;
-    padding: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: whitesmoke;
+  width: 250px;
+  height: 360px;
+  border-radius: 15px;
+  border: 1px solid white;
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.imgCont{
-    height: 80%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+.imgCont {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.imgCont > img{
-    height: 100%;
-    width: auto;
+.imgCont > img {
+  height: 100%;
+  width: 100%;
 }
 
-.desc,.year{
-    margin-bottom: 0;
-    display: flex;
+.desc {
+  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
 }
-p{
-    margin-bottom: 0;
+p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1228px) {
+  .cardCont {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 950px) {
+  .cardCont {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .cardCont {
+    grid-template-columns: 1fr;
+  }
 }
