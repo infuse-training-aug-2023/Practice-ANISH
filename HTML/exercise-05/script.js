@@ -7,14 +7,35 @@ var textinput = document.getElementById("input")
 var btn = document.getElementById("Search")
 var cardCont = document.getElementsByClassName("cardCont")[0]
 var paginationDiv = document.getElementById("paginationDiv");
+var paginationP = document.getElementById("paginationP");
+var prevBtn = document.getElementById("prevBtn")
+var nextBtn = document.getElementById("nextBtn")
+var sortOrderId = document.getElementById("sortOrderId")
+var sortbyId = document.getElementById("sortbyId")
 
 paginationDiv.style.display = "none";
 var currettext = ""
 var page = 1
 
 
+prevBtn.onclick   = ()=>{
+    if(page -1 > 0){
+        page = page-1
+        getPage(page)
+    }
+}
+
+
+nextBtn.onclick   = ()=>{
+    // if(page -1 > 0){
+        page = page+1
+        getPage(page)
+    // }
+}
+
 
 btn.onclick = getData
+
 
 function getData(){
     paginationDiv.style.display = "none";
@@ -28,6 +49,7 @@ function getData(){
                 if (parseInt(r.totalResults) > 10){
                     paginationDiv.style.display = "flex";
                     currettext = textinput.value
+                    paginationP.innerText = page + " / " + Math.round(parseInt(r.totalResults) /10)
                 }
                 while (cardCont.firstChild) {
                   cardCont.removeChild(cardCont.firstChild);
@@ -80,3 +102,46 @@ function createCard(data){
     cardCont.appendChild(ele)
 }
 
+
+function getPage(pageNo){
+    // paginationDiv.style.display = "none";
+    fetch(
+      "http://www.omdbapi.com/?apikey=fd717b92&type=movie&s=" +
+        currettext +
+        "&page="+pageNo
+    )
+      .then((res) => {
+        res.json().then((r) => {
+          if (r.Response === "True") {
+            // console.log(r,);
+            movies = r.Search;
+            console.log(r);
+            found = true;
+            if (parseInt(r.totalResults) > 10) {
+            //   paginationDiv.style.display = "flex";
+              currettext = textinput.value;
+              paginationP.innerText =
+                page + " / " + Math.round(parseInt(r.totalResults) / 10);
+            }
+            while (cardCont.firstChild) {
+              cardCont.removeChild(cardCont.firstChild);
+            }
+            movies.forEach((element) => {
+              createCard(element);
+            });
+          } else {
+            alert(r.Error);
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+}
+
+
+function Sort(){
+  movies.sort((a, b) => {
+    return parseInt(a.year) - parseInt(b.year);
+});
+}

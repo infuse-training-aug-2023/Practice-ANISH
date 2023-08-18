@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 .cardCont {
-  margin-left: 2rem;
+  padding-left: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-row-gap: 4rem;
@@ -39,6 +39,12 @@ font-weight: 700;
     flex-direction: row;
 }
 
+#paginationDiv > p{
+  margin: 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .card {
   background-color: whitesmoke;
   width: 250px;
@@ -68,6 +74,19 @@ font-weight: 700;
 }
 p {
   margin-bottom: 0;
+}
+
+
+.sortingDivCont{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* padding-left: 2rem; */
+}
+
+.sortingDivCont > h3{
+  margin-left: 2rem;
+  margin-right: 1rem;
 }
 
 @media (max-width: 1228px) {

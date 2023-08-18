@@ -21,10 +21,25 @@
     </div>
     <div id="controller">
         <div id="paginationDiv">
-            <button>Previous</button>
-            <p>1/n</p>
-            <button>Next</button>
+            <button id="prevBtn">Previous</button>
+            <p id="paginationP">1/n</p>
+            <button id="nextBtn">Next</button>
         </div>
+    </div>
+    <div class="sortingDivCont">
+        <h3>Sort by:</h3>
+        <select id="sortbyId">
+            <option>Name</option>
+            <option>Year</option>
+        </select>
+
+        <h3>
+            Order :
+        </h3>
+        <select id="sortOrderId">
+            <option>Ascending</option>
+            <option>Descending</option>
+        </select>
     </div>
     <div class="cardCont">
         <!-- <div class="card">
