@@ -13,7 +13,9 @@ var nextBtn = document.getElementById("nextBtn");
 var sortOrderId = document.getElementById("sortOrderId");
 var sortbyId = document.getElementById("sortbyId");
 var ifram = document.getElementById("iframe");
+var sortingDivCont = document.getElementsByClassName("sortingDivCont")[0];
 
+sortingDivCont.style.display = "none";
 paginationDiv.style.display = "none";
 var currettext = "";
 var page = 1;
@@ -48,6 +50,8 @@ function getData() {
           found = true;
           if (parseInt(r.totalResults) > 10) {
             paginationDiv.style.display = "flex";
+
+            sortingDivCont.style.display = "flex";
             currettext = textinput.value;
             paginationP.innerText =
               page + " / " + Math.round(parseInt(r.totalResults) / 10);
@@ -55,7 +59,7 @@ function getData() {
           while (cardCont.firstChild) {
             cardCont.removeChild(cardCont.firstChild);
           }
-          Sort()
+          Sort();
         } else {
           alert(r.Error);
         }
@@ -66,7 +70,7 @@ function getData() {
     });
 }
 
-function createCard(data,index) {
+function createCard(data, index) {
   var ele = document.createElement("div");
   ele.setAttribute("class", "card");
   // creating img div
@@ -98,9 +102,9 @@ function createCard(data,index) {
 
   ele.setAttribute("key", data.imdbID);
 
-  ele.onclick = ()=>{
+  ele.onclick = () => {
     posterClick(data.imdbID);
-  }
+  };
   cardCont.appendChild(ele);
 }
 
@@ -128,7 +132,7 @@ function getPage(pageNo) {
           while (cardCont.firstChild) {
             cardCont.removeChild(cardCont.firstChild);
           }
-          Sort()
+          Sort();
         } else {
           alert(r.Error);
         }
@@ -203,14 +207,13 @@ function Sort() {
       break;
   }
 
-  movies.forEach((element,index) => {
-    createCard(element,index);
+  movies.forEach((element, index) => {
+    createCard(element, index);
   });
 }
 
-
-function posterClick (index)  {
+function posterClick(index) {
   console.log(index);
 
-  ifram.contentWindow.postMessage(index,"*")
+  ifram.contentWindow.postMessage(index, "*");
 }
