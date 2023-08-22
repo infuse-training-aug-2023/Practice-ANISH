@@ -14,5 +14,8 @@ slider = wait.until { driver.find_element(:id, "slider") }
 
 driver.action.drag_and_drop_by(slider, 10, 0).perform
 
+slider_value = driver.find_element(:id, "amount")
+
+print slider_value.attribute("value")
 # sleep(1)
 driver.quit

@@ -18,5 +18,6 @@ select_ele = wait.until { dropdown_ele[1].find_elements(:tag_name, "option") }
 # end
 select_ele[1].click
 
+print select_ele[1].text
 sleep(10)
 driver.quit
