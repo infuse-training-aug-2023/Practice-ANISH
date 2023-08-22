@@ -5,7 +5,7 @@ class Datachanger
   attr_reader :json
   attr_reader :path
 
-  def transform
+  def transform_file
     file = File.open("./data.json")
     @json = JSON.parse(file.read)
     file.close

@@ -9,7 +9,7 @@ class TestJsonEncoder < Test::Unit::TestCase
 
   def test_check_delete
     data = Datachanger.new()
-    data.transform
+    data.transform_file
 
     assert_equal(data.json.has_key?("name"), false)
     assert_equal(data.json.has_key?("first name"), true)
@@ -18,7 +18,7 @@ class TestJsonEncoder < Test::Unit::TestCase
 
   def test_ckeck_file_created
     data = Datachanger.new()
-    data.transform
+    data.transform_file
     assert_equal(data.dumpFile, 1)
   end
 end
