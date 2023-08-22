@@ -16,8 +16,8 @@ class Datachanger
   def dumpFile
     begin
       dump = JSON.dump(@json)
-      time = Time.new.utc.to_i
-      f = File.new(("./ANISH_%s.json" % time), "w+")
+      @time = Time.new.utc.to_i
+      f = File.new(("./ANISH_%s.json" % @time), "w+")
       f.syswrite dump
       f.close
       return 1
