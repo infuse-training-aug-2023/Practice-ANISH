@@ -94,7 +94,8 @@ function createCard(data, index) {
   // var yeardiv = document.createElement("div")
   // yeardiv.setAttribute("class", "desc")
   var yearp = document.createElement("p");
-  yearp.innerText = "Year : " + data.Year;
+  yearp.innerText =  data.Year;
+  yearp.style.textAlign = "end"
   titlediv.appendChild(yearp);
 
   ele.appendChild(imgcont);

@@ -118,7 +118,7 @@ p {
     grid-template-columns: 1fr 1fr;
   }
   .panelCont {
-    width: 45%;
+    width: 60%;
   }
   #iframe {
   height: 100vh;
