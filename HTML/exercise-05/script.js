@@ -1,7 +1,7 @@
-var apikey = "fd717b92";
-
 var movies = [];
 var found = false;
+
+// var BASE_URL = process.env.BASE_URL;
 
 var textinput = document.getElementById("input");
 var btn = document.getElementById("Search");
@@ -11,7 +11,7 @@ var paginationP = document.getElementById("paginationP");
 var prevBtn = document.getElementById("prevBtn");
 var nextBtn = document.getElementById("nextBtn");
 var sortOrderId = document.getElementById("sortOrderId");
-var sortbyId = document.getElementById("sortbyId");
+var sortById = document.getElementById("sortbyId");
 var ifram = document.getElementById("iframe");
 var sortingDivCont = document.getElementsByClassName("sortingDivCont")[0];
 
@@ -39,7 +39,7 @@ btn.onclick = getData;
 function getData() {
   paginationDiv.style.display = "none";
   fetch(
-    "http://www.omdbapi.com/?apikey=fd717b92&type=movie&s=" + textinput.value
+    BASE_URL+"type=movie&s=" + textinput.value
   )
     .then((res) => {
       res.json().then((r) => {
@@ -59,7 +59,7 @@ function getData() {
           while (cardCont.firstChild) {
             cardCont.removeChild(cardCont.firstChild);
           }
-          Sort();
+          ortCards();
         } else {
           alert(r.Error);
         }
@@ -71,48 +71,48 @@ function getData() {
 }
 
 function createCard(data, index) {
-  var ele = document.createElement("div");
-  ele.setAttribute("class", "card");
+  let card_div = document.createElement("div");
+  card_div.setAttribute("class", "card");
   // creating img div
-  var imgcont = document.createElement("div");
+  let imgcont = document.createElement("div");
   imgcont.setAttribute("class", "imgCont");
-  var imgnode = document.createElement("img");
+  let imgnode = document.createElement("img");
   imgnode.setAttribute("src", data.Poster);
   imgnode.setAttribute("alt", data.Title);
   imgcont.appendChild(imgnode);
 
   //creating title div
-  var titlediv = document.createElement("div");
+  let titlediv = document.createElement("div");
   titlediv.setAttribute("class", "desc");
-  var titlep = document.createElement("p");
+  let titlep = document.createElement("p");
   titlep.innerText =
     "Title : " +
     (data.Title.length > 20 ? data.Title.slice(0, 20) + "..." : data.Title);
   titlediv.appendChild(titlep);
 
   //creating year div
-  // var yeardiv = document.createElement("div")
+  // let yeardiv = document.createElement("div")
   // yeardiv.setAttribute("class", "desc")
-  var yearp = document.createElement("p");
+  let yearp = document.createElement("p");
   yearp.innerText =  data.Year;
   yearp.style.textAlign = "end"
   titlediv.appendChild(yearp);
 
-  ele.appendChild(imgcont);
-  ele.appendChild(titlediv);
+  card_div.appendChild(imgcont);
+  card_div.appendChild(titlediv);
 
-  ele.setAttribute("key", data.imdbID);
+  card_div.setAttribute("key", data.imdbID);
 
-  ele.onclick = () => {
+  card_div.onclick = () => {
     posterClick(data.imdbID);
   };
-  cardCont.appendChild(ele);
+  cardCont.appendChild(card_div);
 }
 
 function getPage(pageNo) {
   // paginationDiv.style.display = "none";
   fetch(
-    "http://www.omdbapi.com/?apikey=fd717b92&type=movie&s=" +
+    BASE_URL+"type=movie&s=" +
       currettext +
       "&page=" +
       pageNo
@@ -133,7 +133,7 @@ function getPage(pageNo) {
           while (cardCont.firstChild) {
             cardCont.removeChild(cardCont.firstChild);
           }
-          Sort();
+          ortCards();
         } else {
           alert(r.Error);
         }
@@ -144,16 +144,16 @@ function getPage(pageNo) {
     });
 }
 
-sortbyId.onchange = Sort;
-sortOrderId.onchange = Sort;
-function Sort() {
+sortById.onchange = ortCards;
+sortOrderId.onchange = ortCards;
+function ortCards() {
   while (cardCont.firstChild) {
     cardCont.removeChild(cardCont.firstChild);
   }
   console.log(sortOrderId.value);
-  console.log(sortbyId.value);
+  console.log(sortById.value);
 
-  switch (sortbyId.value) {
+  switch (sortById.value) {
     case "Name":
       switch (sortOrderId.value) {
         case "Ascending":

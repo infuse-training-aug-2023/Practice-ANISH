@@ -1,5 +1,4 @@
 var id = null
-var apikey = "fd717b92";
 
 
 var titleId = document.getElementById("titleId");
@@ -18,19 +17,23 @@ showId.style.display = "none"
 
 window.addEventListener("message",async  function (event) {
     try {
+      // if(event.data == ""){
+
         console.log(event.data, "im data");
         id = event.data;
         if (event.data != null) {
           
           const req = await fetch(
-            `http://www.omdbapi.com/?apikey=${apikey}&i=${event.data}&plot=full`
+            `${BASE_URL}i=${event.data}&plot=full`
           );
           const data = await req.json();
           populateData(data)
           showId.style.display = "flex";
           noshowId.style.display = "none";
         }
+      // }
     } catch (error) {
+      console.log(event.data,"event data");
         this.alert("somthing went Wrong")
     }
 });

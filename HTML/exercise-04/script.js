@@ -9,9 +9,18 @@ const user = {
  * Use destructuting to log the following
 */
 
-const printUserProfile = (user) => {
+const printUserProfile = ({name,designation,company,hobbies}) => {
+
     // Piyush Sharma is a Senior Software Engineer at Infuse Consulting. He likes Reading, Listening to music and Collecting stamps
-    console.log(user.name + " is a " + user.designation + " at " + user.company + ". He likes " + user.hobbies[0] + " , " + user.hobbies[1] + " and " + user.hobbies[2] );
+    console.log(
+      name +
+        " is a " +
+        designation +
+        " at " +
+        company +
+        ". He likes " +
+        hobbies.join(", ").replace(/,/gi, " and")
+    );
 }
 
 printUserProfile(user)

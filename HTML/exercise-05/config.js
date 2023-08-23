@@ -1,0 +1,1 @@
+var BASE_URL="http://www.omdbapi.com/?apikey=fd717b92&"

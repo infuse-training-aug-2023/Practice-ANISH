@@ -3,6 +3,10 @@
     padding: 2.5rem;
 }
 
+body{
+    background-color: white;
+}
+
 .cont{
     display: flex;
         align-items: flex-start;

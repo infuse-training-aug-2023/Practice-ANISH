@@ -7,17 +7,20 @@ function tick(){
 
 
 
-var toggleBtn = document.getElementById("Toogle")
-var container = document.getElementsByClassName("container")[0]
+var toogle_btn_id = document.getElementById("Toogle");
+
 setInterval(tick, 1000);
 
-toggleBtn.onclick = ()=>{
-    if(toggle){
-        container.className = container.className +" dark"
+toogle_btn_id.onclick = ()=>{
+    let container_div = document.getElementsByClassName("container")[0];
+    // if(toggle){
+    //     container.className = container.className +" dark"
         
-    }
-    else{
-        container.className = container.classList[0]
-    }
-    toggle = !toggle
+    // }
+    // else{
+    //     container.className = container.classList[0]
+    // }
+    // toggle = !toggle
+
+    container_div.classList.toggle("dark");
 }

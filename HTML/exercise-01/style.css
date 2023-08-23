@@ -25,6 +25,10 @@ body {
   
 }
 
+.card::after{
+  content: url("./assets/new-usemango-logo.png");
+}
+
 .container {
   display: grid;
   place-items: center;
