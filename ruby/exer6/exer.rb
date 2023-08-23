@@ -11,22 +11,23 @@ class Encode
         file.close
         return 1
       end
-      return -1
+      raise "Empty File"
     rescue => exception
-      return -1
+      raise "File not Found"
     end
   end
 
   def encode(name)
     begin
-      encoded = Base64.encode64("the string that will be base encoded.")
-
+      encoded = Base64.encode64("“the string that will be base encoded ”")
+      output = @txt.gsub("[ “the string that will be base encoded ”]", encoded)
       file = File.open(name + ".txt", "w+")
-      file.write(@txt + " " + encoded)
+      file.write(output)
       file.close
       return 1
     rescue => exception
-      return -1
+      print "Error"
+      raise "Error writing File"
     end
   end
 end

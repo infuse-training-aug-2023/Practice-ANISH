@@ -1,7 +1,7 @@
 require "time"
 require "json"
 
-class Datachanger
+class JsonExample
   attr_reader :json
   attr_reader :path
 
@@ -13,21 +13,23 @@ class Datachanger
     @json.delete("name")
   end
 
-  def dumpFile
+  def write_file
     begin
       dump = JSON.dump(@json)
-      @time = Time.new.utc.to_i
+      @time = Time.new.utc.strftime("%Y-%m-%d%H.%M.%S%z")
+
       f = File.new(("./ANISH_%s.json" % @time), "w+")
       f.syswrite dump
       f.close
       return 1
     rescue => exception
+      print exception
       return -1
     end
   end
 end
 
-d = Datachanger.new()
+# d = DataChanger.new()
 
-d.transform
-d.dumpFile
+# d.transform
+# d.write_file

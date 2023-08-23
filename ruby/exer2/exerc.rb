@@ -1,40 +1,41 @@
 class Arrayfunctions
-    attr_reader :arr
-    def initialize(array)
-        @arr = array
-    end
+  attr_reader :arr
 
-    def element_at(index)
-        if @arr.length() > index
-            return @arr[index]
-        else
-            return -1
-        end    
-    end 
+  def initialize(array)
+    @arr = array
+  end
 
-    def inclusive_range(start_pos,end_pos)
-        if(start_pos >0 and end_pos < @arr.length())
-            return @arr[start_pos..end_pos]
-        
-        else
-            return []
-        end
+  def element_at(index)
+    if @arr.length() > index and index >= 0
+      return @arr[index]
+    else
+      return -1
     end
-    def non_inclusive_range(start_pos,end_pos)
-        if(start_pos >0 and end_pos < @arr.length())
-            return @arr[start_pos...end_pos]
-        
-        else
-            return []
-        end
+  end
+
+  def inclusive_range(start_pos, end_pos)
+    if (start_pos > 0 and end_pos < @arr.length())
+      return @arr[start_pos..end_pos]
+    else
+      return []
     end
-    def start_and_length(start_pos,length)
-        if(start_pos >0 and start_pos+length < @arr.length)
-            return @arr[start_pos..start_pos+length]
-        else
-            return -1
-        end
+  end
+
+  def non_inclusive_range(start_pos, end_pos)
+    if (start_pos > 0 and end_pos < @arr.length())
+      return @arr[start_pos...end_pos]
+    else
+      return []
     end
+  end
+
+  def start_and_length(start_pos, length)
+    if (start_pos > 0 and start_pos + length < @arr.length)
+      return @arr[start_pos..start_pos + length]
+    else
+      return -1
+    end
+  end
 end
 
 # a = Arrayfunctions.new([9,5,1,2,3,4,0,-1])
@@ -47,4 +48,3 @@ end
 # puts ""
 
 # print a.start_and_length(3,2)
-

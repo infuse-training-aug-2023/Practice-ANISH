@@ -5,16 +5,18 @@ class Skip
 
   def skip_sports(number)
     if (number > 0 and number < @arr.length)
-      temp = @arr[number..]
-      i = 0
-      print temp.map.with_index { |x, i|
-        "%d%s" % [number + i, x]
+      temp = []
+
+      @arr.each_with_index { |ele, index|
+        if index >= number
+          temp.append(index.to_s + ele)
+        end
       }
-      return 1
+
+      return temp
     end
 
-    return -1
-    # print @arr
+    return []
   end
 end
 

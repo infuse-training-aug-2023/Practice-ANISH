@@ -3,12 +3,12 @@ require_relative "exerc"
 
 class TestJsonEncoder < Test::Unit::TestCase
   def test_init
-    data = Datachanger.new()
-    assert data.is_a? Datachanger
+    data = JsonExample.new()
+    assert data.is_a? JsonExample
   end
 
   def test_check_delete
-    data = Datachanger.new()
+    data = JsonExample.new()
     data.transform_file
 
     assert_equal(data.json.has_key?("name"), false)
@@ -17,8 +17,8 @@ class TestJsonEncoder < Test::Unit::TestCase
   end
 
   def test_ckeck_file_created
-    data = Datachanger.new()
+    data = JsonExample.new()
     data.transform_file
-    assert_equal(data.dumpFile, 1)
+    assert_equal(data.write_file, 1)
   end
 end
