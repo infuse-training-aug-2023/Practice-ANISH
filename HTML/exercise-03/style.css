@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 20% auto;
+}
+
+aside {
+  border-right: 1px solid rgb(205, 205, 205);
+}
+
+.um-logo {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  width: 100%;
+}
+
+.um-user-email {
+  font-size: 0.8rem;
+}
+
+.um-user img {
+  width: 50px;
+}
+
+.test-designer {
+  width: 50%;
+  height: 200px;
+}
+
+.um-user {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem;
+  justify-content: flex-start;
+  margin: 1.4rem 0;
+  padding-left: 1.4rem;
+}
+
+.um-user > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.um-user-name {
+  color: #00abcc;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.um-navitems__main,
+.um-navitems__secondary {
+  list-style: none;
+}
+
+li {
+  color: #00abcc;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  padding-left: 2rem;
+}
+
+li > span {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+
+ul {
+  padding-left: 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+i {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #00abcc;
+}
+
+.um-navitems__main > li:last-child {
+  border-left: 5px solid #00abcc;
+  border-bottom: 2px solid #888888;
+  margin-bottom: 0;
+}
+
+
+.test {
+	min-height: 100vh;
+	border: 11px solid rgb(165, 165, 165);
+	border-right: 9px solid rgb(165, 165, 165);
+}
+.test-data > span {
+	background-color: black;
+	padding: 0.4%;
+	color: white;
+	font-size: large;
+}
+.test-data > span:nth-child(2) {
+	background-color:  rgb(16, 122, 160 );
+	color: white;
+	padding: 0.4%;
+	font-size: large;
+	align-items: center;
+}
+.test > .test-data {
+	background-color:  rgb(16, 122, 160 );
+}
+span {
+	display: inline-block;
+}
+.test-data .bi-pencil-square {
+	color: white;
+	font-size: large;
+}
+.test-data .bi-x {
+	color: white;
+	font-size: x-large;
+	font-weight: bolder;
+	float: right;
+}
+
+
+
+.test-properties > span {
+	background-color:  rgb(63, 172, 211 );
+	color: white;
+	padding: 0.2%;
+	padding-left: 0.5%;
+	display: block;
+}
+.test-properties {
+	height: 22vh;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.test-properties .form-properties {
+	padding: 0.3%;
+	display: flex;
+	color:  rgb(16, 122, 160 );
+	font-size: medium;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.test-properties .description {
+	display: flex;
+	justify-content: end;
+	padding-top: 0.5%;
+	width: 77%;
+}
+.description textarea {
+	background-color: lightgrey;
+	width: 60%;
+	height: 80%;
+	border-radius: 2px;
+}
+.test-properties .details {
+	width: 50%;
+}
+.test-properties .details label {
+	margin: 0.5%;
+}
+.test-properties .details select {
+	color: gray;
+	border: 1px solid rgb(232, 232, 232);
+	margin-right: 4%;
+	margin-top: 2%;
+}
+#tags {
+	color:  rgb(16, 122, 160 );
+}
+
+
+.test-main {
+	height: 71vh;
+	background-color: white;
+	display: grid;
+	grid-template-columns: 69.5% 30%;
+	grid-template-rows: 50% 50%;
+	gap: 0.5%;
+}
+.test-flowchart > span {
+	color: rgb(255, 255, 255);
+	background-color:  rgb(46, 184, 211 );
+	display: flex;
+	padding: 0.2%;
+	padding-left: 0.5%;
+}
+.test-flowchart {
+	display: inline;
+	color: gray;
+	background-color: rgb(243, 241, 241);
+	border-right: 2px solid  rgb(46, 184, 211 );
+	border-bottom: 1px solid gray;
+	grid-row: 1/3;
+}
+.options {
+	padding: 0.4%;
+	background-color: white;
+}
+.options .bi-list-nested,
+.bi-play-fill,
+.bi-toggle-on,
+.bi-box-seam-fill,
+.bi-lightning,
+.bi-arrows-angle-expand,
+.bi-scissors,
+.bi-back,
+.bi-clipboard {
+	color: gray;
+	font-size: x-large;
+	margin-top: 10px;
+	padding: 0.3%;
+}
+.options .bi-trash {
+	color: gray;
+	font-size: x-large;
+	margin: 5px;
+}
+.test-properties {
+	background-color: white;
+	display: block;
+	color: rgb(64, 155, 197);
+}
+
+.test-variables,
+.test-parameters {
+	height: 100%;
+	border-left: 2px solid  rgb(63, 172, 211 );
+	border-bottom: 1px solid gray;
+	background-color: white;
+}
+.test-data .test-variables > span,
+.test-data .test-parameters > span {
+	background-color:  rgb(63, 172, 211 );
+	display: flex;
+	color: white;
+	padding: 0.5%;
+}
+.test-data .bi-plus {
+	float: right;
+	color:  rgb(63, 172, 211 );
+	font-size: x-large;
+	font-weight: bolder;
+}
+.table-header {
+	color:  rgb(63, 172, 211 );
+	display: flex;
+	margin-top: 4%;
+	display: flex;
+	border-bottom: 1px solid grey;
+	font-size: medium;
+	padding: 0.1% 4%;
+	justify-content: start;
+	gap: 25%;
+	font-weight: bold;
+	width: 100%;
+}
