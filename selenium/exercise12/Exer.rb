@@ -2,60 +2,82 @@ require "selenium-webdriver"
 
 Selenium::WebDriver::Chrome::Service.driver_path = "C:/Users/naika/OneDrive/Documents/Drivers/chromedriver.exe"
 
-driver = Selenium::WebDriver.for :chrome
+class WebsiteNav
+  def initialize
+    @driver = Selenium::WebDriver.for :chrome
+    @wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+    @driver.manage.timeouts.implicit_wait = 3
+  end
 
-driver.manage.window.maximize
+  def openWebsite()
+    @driver.get("https://www.saucedemo.com/")
+    @driver.manage.window.maximize
+  end
 
-wait = Selenium::WebDriver::Wait.new(:timeout => 10)
+  def login_website(username, password)
+    if @driver.title == "Swag Labs"
+      username_cont = @driver.find_element(:id, "user-name")
+      password_cont = @driver.find_element(:id, "password")
+      login_btn = @driver.find_element(:id, "login-button")
+      username_cont.send_keys(username)
+      password_cont.send_keys(password)
+      login_btn.click
+    else
+      raise "Please Open the Website First"
+    end
+  end
 
-driver.manage.timeouts.implicit_wait = 3
+  def checkout_cart
+    shoping_cart = @driver.find_element(:id, "shopping_cart_container")
+    if shoping_cart.displayed?
+      shoping_cart.click
+      @driver.find_element(:id, "checkout").click
+    end
+  end
 
-userName = "user-name"
-password = "password"
+  def fill_checkout_details(first_name, last_name, pincode)
+    @driver.find_element(:id, "first-name").send_keys(first_name)
+    @driver.find_element(:id, "last-name").send_keys(last_name)
+    @driver.find_element(:id, "postal-code").send_keys(pincode)
+    @driver.find_element(:id, "continue").click
+    @driver.find_element(:id, "finish").click
+  end
 
-driver.get "https://www.saucedemo.com/"
+  def add_to_cart(id)
+    begin
+      add_item = @wait.until { @driver.find_element(:id, id) }
+      add_item.click
+    rescue => exception
+      raise "Failed To add To cart"
+    end
+  end
 
-username_cont = driver.find_element(:id, userName)
-password_cont = driver.find_element(:id, password)
-login_btn = driver.find_element(:id, "login-button")
+  def remove_from_cart(id)
+    begin
+      remove_item = @wait.until { @driver.find_element(:id, id) }
+      remove_item.click
+    rescue => exception
+      raise "Failed To remove from cart"
+    end
+  end
 
-username_cont.send_keys("standard_user")
+  def open_new_tab
+    @driver.manage.new_window(:tab)
+  end
 
-password_cont.send_keys("secret_sauce")
-
-login_btn.click
-
-backpack_add_card = wait.until { driver.find_element(:id, "add-to-cart-sauce-labs-backpack") }
-
-puts backpack_add_card.location
-
-backpack_add_card.click
-
-shoping_cart = driver.find_element(:id, "shopping_cart_container")
-if shoping_cart.displayed?
-  shoping_cart.click
+  def quit_driver
+    @driver.quit
+  end
 end
 
-driver.find_element(:id, "checkout").click
+sauce_nav = WebsiteNav.new()
+sauce_nav.openWebsite()
 
-driver.find_element(:id, "first-name").send_keys("ANish")
-driver.find_element(:id, "last-name").send_keys("Naik")
-driver.find_element(:id, "postal-code").send_keys("403596")
-driver.find_element(:id, "continue").click
-driver.find_element(:id, "finish").click
+sauce_nav.login_website("standard_user", "secret_sauce")
+sauce_nav.add_to_cart("shopping_cart_container")
+sauce_nav.checkout_cart
+sauce_nav.fill_checkout_details("ANish", "Naik", "403512")
 
-shoping_cart = driver.find_element(:id, "shopping_cart_container")
+sauce_nav.quit_driver
 
-if shoping_cart.displayed?
-  shoping_cart.click
-end
-
-# postal-code
-
-driver.manage.new_window(:tab)
-sleep(5)
-driver.close
-sleep(5)
-# driver.save_screenshot("./ss.png")
-
-driver.quit
+# shoping_cart = @driver.find_element(:id, "shopping_cart_container")

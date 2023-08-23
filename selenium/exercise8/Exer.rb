@@ -12,10 +12,11 @@ driver.switch_to.frame driver.find_element(:xpath, "/html/body/div/div[1]/div[2]
 
 slider = wait.until { driver.find_element(:id, "slider") }
 
-driver.action.drag_and_drop_by(slider, 10, 0).perform
+slider_pointer = slider.find_element(:tag_name, "span")
+
+slider_pointer.send_keys(:right)
 
 slider_value = driver.find_element(:id, "amount")
 
 print slider_value.attribute("value")
-# sleep(1)
 driver.quit
