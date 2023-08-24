@@ -6,4 +6,6 @@ COPY . .
 
 RUN pip install -r requirements.txt
 
+ENV OUTPUT_FILE="./output.jpg"
+
 CMD [ "python","exer.py","./test.webp" ]
