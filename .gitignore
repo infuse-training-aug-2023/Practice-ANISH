@@ -1,0 +1,6 @@
+# docker/exp4/src/node_modules
+# docker/exp5/src/node_modules
+# docker/exp6/forntend/node_modules
+# docker/exp6/backend/node_modules
+
+**/node_modules
