@@ -1,0 +1,11 @@
+services:
+  backend:
+    build: /backend
+    ports:
+      - 3001:3001
+    environment:
+      - NAME=ANISH
+  frontend:
+    build: /frontend
+    ports:
+      - 3000:3000
